@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 2
   script: python setup.py install --offline --single-version-externally-managed --record record.txt
 
 requirements:
@@ -40,7 +40,7 @@ test:
   requires:
     - pytest
     - pyyaml
-    - matplotlib
+    - matplotlib-base
 
 about:
   home: http://speclite.readthedocs.io/en/latest/overview.html
