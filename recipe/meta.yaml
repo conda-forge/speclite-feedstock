@@ -1,6 +1,6 @@
 {% set name = "speclite" %}
-{% set version = "0.11" %}
-{% set sha256 = "061da95064a4dd76771cc128de16bb45f6661702b324410c973ecbf6b8429b69" %}
+{% set version = "0.12" %}
+{% set sha256 = "68200d716ebdfd381feeeed3c82d9b146f0d8f508540975a98a52d4dafe11c0e" %}
 
 package:
   version: {{ version }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 2
+  number: 0
   script: python setup.py install --offline --single-version-externally-managed --record record.txt
 
 requirements:
