@@ -1,6 +1,6 @@
 {% set name = "speclite" %}
-{% set version = "0.13" %}
-{% set sha256 = "cf32e5e7a060690fb9eecb071bbdce61854f04fe25e7fd312346a82446c56111" %}
+{% set version = "0.14" %}
+{% set sha256 = "55ae62c72b183eee13598c36f83f3c146ae1c7624dee3ed40581cb956b59fd39" %}
 
 package:
   version: {{ version }}
