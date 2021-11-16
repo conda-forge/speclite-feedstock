@@ -1,45 +1,49 @@
 {% set name = "speclite" %}
 {% set version = "0.14" %}
-{% set sha256 = "55ae62c72b183eee13598c36f83f3c146ae1c7624dee3ed40581cb956b59fd39" %}
+
 
 package:
-  version: {{ version }}
   name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  fn: {{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/speclite-{{ version }}.tar.gz
+  sha256: 55ae62c72b183eee13598c36f83f3c146ae1c7624dee3ed40581cb956b59fd39
 
 build:
   number: 0
-  script: python setup.py install --offline --single-version-externally-managed --record record.txt
+  noarch: python
+  entry_points:
+    - speclite_benchmark = speclite.benchmark:main
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
-
   host:
-    - python
-    - setuptools
+    - python >=3.6
+    - pip
     - astropy
-
   run:
-    - python
+    - python >=3.6
     - numpy
     - scipy
     - astropy
     - pyyaml
 
 test:
-
   imports:
     - speclite
+    - speclite.extern
+  commands:
+    - pip check
+    - speclite_benchmark --help
+  requires:
+    - pip
 
   commands:
     # Execute the full test suite
-    - cd ${PREFIX}/lib/python*/site-packages/speclite/tests ; py.test -vv  # [not win]
+    - cd ${PREFIX}/lib/python*/site-packages/speclite/tests ; pytest -vv  # [not win]
   requires:
     - pytest
-    - pyyaml
     - matplotlib-base
 
 about:
