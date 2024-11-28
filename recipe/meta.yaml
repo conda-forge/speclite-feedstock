@@ -11,7 +11,7 @@ source:
   sha256: 55ae62c72b183eee13598c36f83f3c146ae1c7624dee3ed40581cb956b59fd39
 
 build:
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - speclite_benchmark = speclite.benchmark:main
@@ -21,12 +21,12 @@ requirements:
   host:
     - python >=3.6
     - pip
-    - astropy
+    - astropy-base
   run:
     - python >=3.6
     - numpy
     - scipy
-    - astropy
+    - astropy-base
     - pyyaml
 
 test:
