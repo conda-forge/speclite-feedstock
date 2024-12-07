@@ -20,13 +20,13 @@ requirements:
   host:
     - python >=3.6
     - pip
-    - astropy
+    - astropy-base
     - setuptools
   run:
     - python >=3.6
     - numpy
     - scipy
-    - astropy
+    - astropy-base
     - pyyaml
 
 test:
