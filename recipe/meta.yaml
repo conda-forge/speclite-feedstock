@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/speclite-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/speclite-{{ version }}.tar.gz
   sha256: 1933f60cc1f78278c04eccbd1c40ad6f3d8252671392b9349f0ddbef17009408
 
 build:
@@ -21,6 +21,7 @@ requirements:
     - python >=3.6
     - pip
     - astropy
+    - setuptools
   run:
     - python >=3.6
     - numpy
