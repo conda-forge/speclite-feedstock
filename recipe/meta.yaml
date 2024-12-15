@@ -1,14 +1,13 @@
 {% set name = "speclite" %}
-{% set version = "0.14" %}
-
+{% set version = "0.20" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/speclite-{{ version }}.tar.gz
-  sha256: 55ae62c72b183eee13598c36f83f3c146ae1c7624dee3ed40581cb956b59fd39
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/speclite-{{ version }}.tar.gz
+  sha256: 1933f60cc1f78278c04eccbd1c40ad6f3d8252671392b9349f0ddbef17009408
 
 build:
   number: 0
@@ -21,12 +20,13 @@ requirements:
   host:
     - python >=3.6
     - pip
-    - astropy
+    - astropy-base
+    - setuptools
   run:
     - python >=3.6
     - numpy
     - scipy
-    - astropy
+    - astropy-base
     - pyyaml
 
 test:
@@ -59,3 +59,4 @@ extra:
   recipe-maintainers:
     - giacomov
     - dkirkby
+    - jan-janssen
