@@ -10,7 +10,7 @@ source:
   sha256: 1933f60cc1f78278c04eccbd1c40ad6f3d8252671392b9349f0ddbef17009408
 
 build:
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - speclite_benchmark = speclite.benchmark:main
@@ -18,12 +18,12 @@ build:
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - pip
     - astropy-base
     - setuptools
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - numpy
     - scipy
     - astropy-base
@@ -38,6 +38,7 @@ test:
     - speclite_benchmark --help
   requires:
     - pip
+    - python {{ python_min }}
 
   commands:
     # Execute the full test suite
@@ -45,6 +46,7 @@ test:
   requires:
     - pytest
     - matplotlib-base
+    - python {{ python_min }}
 
 about:
   home: http://speclite.readthedocs.io/en/latest/overview.html
